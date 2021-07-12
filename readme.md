@@ -5,10 +5,10 @@ This app is built using python and django framework. To-Do list is a daily sched
 
 
 ## ✨ Features
-This project can be used for:
-✔️ Adding a Task.
-✔️ Deleting the Task.
-✔️ Updating a Task.
+This project can be used for:\
+✔️ Adding a Task.\
+✔️ Deleting the Task.\
+✔️ Updating a Task.\
 ✔️ Completing a task.
 
 ## 🚀 Techonologies
