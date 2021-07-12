@@ -1,0 +1,93 @@
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu&display=swap');
+	.ubuntu{
+		font-family: 'Ubuntu', sans-serif;
+	}
+	.font{
+		font-family: 'Montserrat', sans-serif;
+	}
+	.mybtngreen{
+		background-color: #9FE6A0;
+		padding: 10px;
+		text-decoration :none;
+		color:black;
+
+	}
+	.mybtngreen:hover{
+		background-color:#5D8233;
+
+	}
+	.mybtnred{
+		padding:10px;
+		background-color: #D83A56;
+				text-decoration :none;
+				color:white;
+	}
+	.mybtnred:hover{
+		background-color:#F55C47;
+	}
+	.btn{
+		font-size:1.5rem;
+	}
+	input{
+		font-size: 1.5rem;
+	}
+
+	input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+
+	}
+
+	input::placeholder {
+	  color: #d3d3d3;
+	}
+
+	.submit{
+		background-color: #6BA3E8;
+	}
+
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+
+	}
+
+	.item-row{
+		margin: 10px;
+		padding: 20px;
+		font-size: 1.5rem;
+
+	}
+
+
+</style>
+
+<div class="center-column">
+	<h1 style="text-align:center" class="font">Todo List</h1>
+
+	<form method="POST" action="/">
+		{% csrf_token %}
+		{{form.title}}
+		<input class="btn font" type="submit" name="Create Task">
+	</form>
+
+	<div class="todo-list">
+
+	{% for task in tasks %}
+		<div class="item-row">
+			<a class="mybtngreen ubuntu" href="{% url 'update_task' task.id %}">Update</a>
+			<a class="mybtnred ubuntu" href="{% url 'delete' task.id %}">Delete</a>
+
+			{% if task.complete == True %}
+			<strike>{{task}}</strike>
+			{% else %}
+			<span>{{task}}</span>
+			{% endif %}
+		</div>
+	{% endfor %}
+	</div>
+</div>
